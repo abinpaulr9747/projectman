@@ -1,0 +1,25 @@
+/*!
+ *
+ * My custom css.
+ *
+ */
+
+.login-wrapper{
+    padding-left:0px;
+}
+
+.middle-margin{
+    width:370px;
+    margin:0 auto;
+    margin-top:88px;
+}
+
+@media (max-width: 415px){
+
+    .middle-margin{
+        width:90%;
+        margin-top:0px;
+    }
+
+}
+

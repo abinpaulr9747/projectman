@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,9 +78,11 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'JsuLcXBMo8JT50IiGV2ufECBEdUAd4Mc',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
+
+    'profiler' => true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -191,4 +193,4 @@ return array(
 
 	),
 
-);
+];

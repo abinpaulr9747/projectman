@@ -15,10 +15,40 @@ class UserController extends BaseController {
     |
     */
 
-    public function login()
-    {
+    public function login(){
 
-        return View::make('hello');
+        if (Request::isMethod('post')){
+
+            $user = array(
+                'username' => Input::get('username'),
+                'password' => Input::get('password')
+            );
+
+            if(Auth::attempt($user, true)){
+
+                return Redirect::route('dashboard')
+                    ->with('flash_notice', 'You are successfully logged in.');
+
+            } else {
+
+                // authentication failure! lets go back to the login page
+                return Redirect::route('login')
+                    ->with('flash_error', 'Your username/password combination was incorrect.')
+                    ->withInput();
+
+            }
+
+        }
+
+        return View::make('User.login');
+
+    }
+
+
+    public function forgot_password(){
+
+        return View::make('User.login');
+
     }
 
 }

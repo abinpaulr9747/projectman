@@ -16,6 +16,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
 
+    // put timestamp false for mhis table only.
+
+    public $timestamps = false;
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

@@ -18,7 +18,7 @@
     <link href="{{ Asset('/css/sb-admin.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="{{ Asset('/font-awesome-4.1.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ Asset('font-awesome-4.1.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,7 +43,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">SB Admin</a>
+            <a class="navbar-brand" href="index.html">Project Manager</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -141,7 +141,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="{{ route('logout' ) }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </li>
                 </ul>
             </li>
@@ -205,8 +205,18 @@
                         </li>
                     </ol>
                 </div>
+
             </div>
             <!-- /.row -->
+
+            <div class="content">
+
+                @if(Session::has('flash_notice'))
+                <div id="flash_notice">{{ Session::get('flash_notice') }}</div>
+                @endif
+                @yield('content')
+
+            </div>
 
         </div>
         <!-- /#page-wrapper -->
@@ -215,10 +225,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
+    <script src="{{ Asset('/js/jquery-1.11.0.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ Asset('/js/bootstrap.min.js') }}"></script>
 
 </body>
 
