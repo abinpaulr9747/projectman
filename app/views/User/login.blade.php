@@ -5,6 +5,8 @@
 
     <div class="well">
 
+        @include('elements.flash')
+
         <legend>Log in to continue</legend>
 
         {{ Form::open(array('action' => 'UserController@login')) }}

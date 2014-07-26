@@ -27,7 +27,7 @@ class UserController extends BaseController {
             if(Auth::attempt($user, true)){
 
                 return Redirect::route('dashboard')
-                    ->with('flash_notice', 'You are successfully logged in.');
+                    ->with('flash_success', 'You are successfully logged in.');
 
             } else {
 

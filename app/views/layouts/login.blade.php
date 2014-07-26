@@ -64,9 +64,7 @@
     <div>
 
         <div class="container-fluid">
-            @if(Session::has('flash_notice'))
-                <div id="flash_notice">{{ Session::get('flash_notice') }}</div>
-            @endif
+
             @yield('content')
 
         </div>

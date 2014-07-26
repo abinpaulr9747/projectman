@@ -1,11 +1,21 @@
 @extends('layouts.default')
 
-@section('sidebar')
-@parent
+@section('head') Dashboard @stop
 
-<p>This is appended to the master sidebar.</p>
+@section('page_title') Dashboard @stop
+
+@section('dashboard') class="active" @stop
+
+@section('breadcrumbs')
+
+    <li>
+        <i class="fa fa-dashboard"></i> Dashboard
+    </li>
+
 @stop
 
 @section('content')
-<p>This is my body content.</p>
+
+    <p> Content coming soon </p>
+
 @stop
