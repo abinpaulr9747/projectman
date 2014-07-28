@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="{{ Asset('/css/sb-admin.css') }}" rel="stylesheet">
 
+    <!-- Main custom CSS -->
+    <link href="{{ Asset('/css/style.css') }}" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="{{ Asset('font-awesome-4.1.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 

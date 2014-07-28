@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration {
             $table->text('password');
             $table->text('remember_token');
             $table->integer('status');
+            $table->datetime('updated_at');
+            $table->datetime('created_at');
         });
 
         DB::table('users')->insert(
@@ -32,7 +34,9 @@ class CreateUsersTable extends Migration {
                 'role_id' => 1,
                 'username' => 'abinpaul',
                 'password' => Hash::make('11111111'),
-                'status' => 1
+                'status' => 1,
+                'updated_at' => date('Y-m-d H:i:s'),
+                'created_at' => date('Y-m-d H:i:s')
                 )
              );
 	}

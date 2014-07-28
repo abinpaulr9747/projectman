@@ -2,10 +2,10 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
         <li @yield('dashboard') >
-            <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+            <a href="{{{ route('dashboard') }}}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
         <li @yield('users') >
-            <a href="charts.html"><i class="fa fa-fw fa-user"></i> Users</a>
+            <a href="{{{ route('users') }}}"><i class="fa fa-fw fa-user"></i> Users</a>
         </li>
         <li @yield('table') >
             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>

@@ -37,9 +37,13 @@ Route::filter('auth', function()
             ->with('flash_error', 'You must be logged in to view this page!');
 });
 
-Route::get('/', array('as' => 'dashboard', function () {
-    return View::make('User.hello');
-}))->before('auth');
+Route::get('/', array('as' => 'dashboard','uses'=>'HomeController@dashboard' ))->before('auth');
+
+Route::get('/users', array('as' => 'users','uses'=>'HomeController@users' ))->before('auth');
+
+Route::match(array('GET','POST'),'/users/add', array('as' => 'user_add','uses'=>'HomeController@user_add' ))->before('auth');
+
+Route::get('/users/edit', array('as' => 'user_edit','uses'=>'HomeController@user_edit' ))->before('auth');
 
 
 
