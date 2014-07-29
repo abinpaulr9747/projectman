@@ -34,15 +34,57 @@ class HomeController extends BaseController {
     public function users()
     {
 
-        $users = User::with('role')->get();
+        $users = User::with('role')->paginate(5);
 
         return View::make('Home.users',array('users'=>$users, 'check'=> '1'));
 
     }
 
-    public function user_add(){
+    public function user_add()
+    {
 
-        return View::make('Home.user_add');
+        // Save if post request.
+
+        if( Request::isMethod('post') )
+        {
+            $request_data = Input::all();
+
+            $user = new User;
+
+            $validator = Validator::make($request_data, $user->rules, array(), $user->attributes );
+
+            if( $validator->passes() )
+            {
+
+                $user->firstname = Input::get('firstname');
+                $user->middlename = Input::get('middlename');
+                $user->lastname = Input::get('lastname');
+                $user->password = Input::get('password');
+                $user->username = Input::get('username');
+                $user->role_id = Input::get('role_id');
+                $user->status = Input::get('status');
+
+                $user->save();
+
+                return Redirect::route('users')
+                    ->with('flash_success','User has been saved successfully');
+
+            }
+            else
+            {
+                return Redirect::back()->withErrors($validator)->withInput();
+
+            }
+
+        }
+
+        // Get roles list
+
+        $roles = Role::orderBy('id')->lists('role','id');
+
+        $status = array('1'=>'Active','2'=>'Inactive');
+
+        return View::make('Home.user_add', compact('roles','status'));
 
     }
 
