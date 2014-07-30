@@ -6,9 +6,24 @@
 $('body').on('click','.pagination a',function(){
 
     var myurl = $(this).attr('href');
-
+    ajax_pagination(myurl);
     event.preventDefault();
 
+});
+
+// Sorting with ajax.
+
+$('body').on('click','#ajax-paginate-content th a',function(){
+
+    var myurl = $(this).attr('href');
+    ajax_pagination(myurl);
+    event.preventDefault();
+
+});
+
+
+function ajax_pagination(myurl)
+{
     $.ajax(
         {
             url: myurl,
@@ -30,5 +45,4 @@ $('body').on('click','.pagination a',function(){
             alert('No response from server');
         });
     return false;
-
-});
+}

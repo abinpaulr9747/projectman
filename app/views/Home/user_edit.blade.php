@@ -2,7 +2,7 @@
 
 @section('page_title') Users @stop
 
-@section('head') Add New User @stop
+@section('head') Edit New User @stop
 
 @section('users') class="active" @stop
 
@@ -15,7 +15,7 @@
     <a href="{{{ route('users') }}}"><i class="fa fa-users"></i> Users</a>
 </li>
 <li>
-    <i class="fa fa-user"></i> Add New User
+    <i class="fa fa-user"></i> Edit New User
 </li>
 
 @stop

@@ -46,7 +46,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         'status'  => 'Status',
     );
 
-    protected $guarded = array();
+    protected $guarded = array('id','created_at','updated_at');
 
     /*
      *
