@@ -34,9 +34,18 @@ class HomeController extends BaseController {
     public function users()
     {
 
-        $users = User::with('role')->paginate(5);
+        $users = User::where('id','!=',Auth::id())->with('role')->paginate(5);
 
-        return View::make('Home.users',array('users'=>$users, 'check'=> '1'));
+        if( Request::ajax() )
+        {
+
+            $html = View::make('Home.user_list',array('users'=>$users))->render();
+
+            return Response::json(array('html' => $html));
+
+        }
+
+        return View::make('Home.users',array('users'=>$users));
 
     }
 
@@ -85,6 +94,27 @@ class HomeController extends BaseController {
         $status = array('1'=>'Active','2'=>'Inactive');
 
         return View::make('Home.user_add', compact('roles','status'));
+
+    }
+
+
+    public function user_edit( $user_id = null )
+    {
+
+        if( $user_id !== null )
+        {
+
+            $user = User::findOrFail($user_id);
+
+            // Get roles list
+
+            $roles = Role::orderBy('id')->lists('role','id');
+
+            $status = array('1'=>'Active','2'=>'Inactive');
+
+            return View::make('Home.user_edit', compact('roles','status','user'));
+
+        }
 
     }
 

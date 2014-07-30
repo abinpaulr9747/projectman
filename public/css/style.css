@@ -18,6 +18,12 @@
     margin-bottom: 15px;
 }
 
+.full-content{
+    height:100%;
+    width:100%;
+    min-height: 100px;
+}
+
 @media (max-width: 415px){
 
     .middle-margin{

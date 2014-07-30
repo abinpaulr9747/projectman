@@ -33,52 +33,17 @@
 
     <div class="col-lg-12">
 
-        <table class="table table-bordered table-striped">
-            <thead>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Username
-                </th>
-                <th>
-                    Role
-                </th>
-                <th>
-                    Status
-                </th>
-                <th>
-                    Created at
-                </th>
-            </thead>
-            <tbody>
-                @forelse($users as $user)
-                    <tr>
-                        <td>{{{ $user->id }}}</td>
-                        <td>{{{ $user->firstname.' '.$user->middlename.' '.$user->lastname }}}</td>
-                        <td>{{{ $user->username }}}</td>
-                        <td>{{{ $user->role->role }}}</td>
-                        <td>
-                            @if($user->status == 1)
-                                Active
-                            @else
-                                Inactive
-                            @endif
-                        </td>
-                        <td>{{{ date('Y-m-d H:i:s', strtotime($user->created_at)) }}}</td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td colspan="6"> No users found.</td>
-                    </tr>
-                @endforelse
-            </tbody>
-        </table>
+        <div id="ajax-loading" class="row-fluid full-content" style="display: none;">
 
-        {{ $users->links() }}
+            <div class="span12 pagination-centered"><img src="{{ Asset('/images/loading.gif') }}" alt="header" class="img-responsive center-block" /></div>
+
+        </div>
+
+        <div id="ajax-paginate-content">
+
+            @include('Home.user_list')
+
+        </div>
 
     </div>
 

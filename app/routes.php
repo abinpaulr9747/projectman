@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/error',array('as'=>'error', function(){
+    return View::make('error');
+}));
+
 Route::match(array('GET', 'POST'),'login',array('as'=>'login', 'uses'=>'UserController@login'))->before('guest');
 
 Route::filter('guest', function()
@@ -43,7 +47,7 @@ Route::get('/users', array('as' => 'users','uses'=>'HomeController@users' ))->be
 
 Route::match(array('GET','POST'),'/users/add', array('as' => 'user_add','uses'=>'HomeController@user_add' ))->before('auth');
 
-Route::get('/users/edit', array('as' => 'user_edit','uses'=>'HomeController@user_edit' ))->before('auth');
+Route::match(array('GET','POST'),'/users/edit/{id}', array('as' => 'user_edit','uses'=>'HomeController@user_edit' ))->where('id','[0-9]+')->before('auth');
 
 
 

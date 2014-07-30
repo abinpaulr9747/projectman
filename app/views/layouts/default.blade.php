@@ -86,6 +86,9 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ Asset('/js/bootstrap.min.js') }}"></script>
 
+    <!-- Custom project man javascript -->
+    <script src="{{ Asset('/js/custom.js') }}"></script>
+
 </body>
 
 </html>
